@@ -39,9 +39,9 @@ const store = new SequelizeStore({
     db: db
 });
 
-// (async() => {
-//    await db.sync();
-// })();
+(async() => {
+   await db.sync();
+})();
 app.use(helmet({
     contentSecurityPolicy: false, 
     crossOriginEmbedderPolicy: false,
@@ -56,18 +56,18 @@ app.use(cors({
 }));
 // const allowedOrigins = ['http://localhost:3000', 'http://192.168.1.20:3000','http://192.168.100.18:3000','http://192.168.100.18:5000','http://192.168.1.5:3000','http://192.168.100.19:3000'];
 
-// app.use(cors({
-//     origin: (origin, callback) => {
-//         if (!origin || allowedOrigins.includes(origin)) {
-//             callback(null, true); 
-//         } else {
-//             callback(new Error('Not allowed by CORS')); 
-//         }
-//     },
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-Type', 'Authorization'],
-//     credentials: true
-// }));
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true); 
+        } else {
+            callback(new Error('Not allowed by CORS')); 
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+}));
 app.use(fileUpload());
 
 
@@ -118,8 +118,8 @@ app.get('/', (req, res) => {
     res.send('berhasil');
 });
 
-// store.sync();
+store.sync();
 
-const port = 5000
+// const port = 5000
 
 app.listen(port,()=> {console.log('server')})
