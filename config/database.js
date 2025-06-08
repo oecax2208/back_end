@@ -1,25 +1,26 @@
 const { Sequelize } = require('sequelize');
 
-const db = new Sequelize('pos', 'root', 'password', {
-  host: 'localhost',
+const db = new Sequelize('u958879414_pos', 'u958879414_pos', 'Janda123!@#', {
+  host: '92.113.22.83',
   dialect: 'mysql',
+  port: 3306,
   timezone: '+07:00',
   logging: console.log,
 });
 
 module.exports = db;
 
-//db lama 'kasirkujs'
+// db = 'u958879414_pos'
 
-//deploy
-// Hostname:
-// localhost
+// //deploy
+// Hostname: 
+// 92.113.22.83
 // Database:
-// brabsenm_kasir
+// u958879414_pos
 // Username:
-// brabsenm_kasir
+// u958879414_pos
 // Password:
-// E2NUUQGaZWkQPneWQhQ4
+// Janda123!@#
 
 // deployv2
 // Hostname:
